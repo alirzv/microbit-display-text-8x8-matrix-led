@@ -20,34 +20,14 @@ def on_button_pressed_ab():
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
 def on_button_pressed_b():
-    max7219_matrix.scroll_text("Its party time !!", 75, 500)
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.fill_all()
-    basic.pause(200)
-    max7219_matrix.clear_all()
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.fill_all()
-    basic.pause(500)
-    max7219_matrix.clear_all()
-    basic.pause(200)
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.fill_all()
-    basic.pause(200)
-    max7219_matrix.clear_all()
-    max7219_matrix.randomize_all()
-    basic.pause(200)
-    max7219_matrix.fill_all()
-    basic.pause(500)
-    max7219_matrix.clear_all()
+    max7219_matrix.scroll_text("Party!", 25, 500)
+    for i in range(50):
+        max7219_matrix.clear_all()
+
+    for i in range(50):
+        max7219_matrix.clear_all()
+        max7219_matrix.randomize_all()
+        basic.pause(200)
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
 temp = 0
@@ -61,3 +41,6 @@ max7219_matrix.for_4_in_1_modules(rotation_direction.CLOCKWISE, False)
 def on_forever():
     pass
 basic.forever(on_forever)
+
+max7219_matrix.get_empty_matrix()
+max7219_matrix.get_value_from_matrix([], 0, 0)
