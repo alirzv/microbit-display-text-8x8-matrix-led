@@ -20,10 +20,17 @@ def on_button_pressed_ab():
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
 def on_button_pressed_b():
+    countdown = 10
     max7219_matrix.scroll_text("Party!", 25, 500)
-    for i in range(50):
+    for j in range(10):
         max7219_matrix.clear_all()
-
+        max7219_matrix.display_text_align_right(convert_to_text(countdown), True)
+        max7219_matrix.fill_for_one(3)
+        max7219_matrix.fill_for_one(2)
+        max7219_matrix.fill_for_one(1)
+        basic.pause(700)
+        countdown -= 1
+        
     for i in range(50):
         max7219_matrix.clear_all()
         max7219_matrix.randomize_all()
@@ -41,6 +48,3 @@ max7219_matrix.for_4_in_1_modules(rotation_direction.CLOCKWISE, False)
 def on_forever():
     pass
 basic.forever(on_forever)
-
-max7219_matrix.get_empty_matrix()
-max7219_matrix.get_value_from_matrix([], 0, 0)

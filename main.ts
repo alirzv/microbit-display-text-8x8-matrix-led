@@ -16,12 +16,18 @@ input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
     max7219_matrix.displayText(convertToText(temp), 0, true)
 })
 input.onButtonPressed(Button.B, function on_button_pressed_b() {
-    let i: number;
+    let countdown = 10
     max7219_matrix.scrollText("Party!", 25, 500)
-    for (i = 0; i < 50; i++) {
+    for (let j = 0; j < 10; j++) {
         max7219_matrix.clearAll()
+        max7219_matrix.displayTextAlignRight(convertToText(countdown), true)
+        max7219_matrix.fillForOne(3)
+        max7219_matrix.fillForOne(2)
+        max7219_matrix.fillForOne(1)
+        basic.pause(700)
+        countdown -= 1
     }
-    for (i = 0; i < 50; i++) {
+    for (let i = 0; i < 50; i++) {
         max7219_matrix.clearAll()
         max7219_matrix.randomizeAll()
         basic.pause(200)
@@ -33,5 +39,3 @@ max7219_matrix.for_4_in_1_modules(rotation_direction.clockwise, false)
 basic.forever(function on_forever() {
     
 })
-max7219_matrix.getEmptyMatrix()
-max7219_matrix.getValueFromMatrix([], 0, 0)
